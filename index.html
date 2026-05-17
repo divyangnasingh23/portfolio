@@ -1290,6 +1290,294 @@ body:not(:hover) #cursor-ring { opacity: 0; }
   .filter-tabs { gap: 6px; }
   .filter-tab { padding: 6px 14px; font-size: 12px; }
 }
+
+/* ═══════════════════════════════════════════════════════
+   PROJECT DETAIL OVERLAY
+═══════════════════════════════════════════════════════ */
+.pd-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  background: var(--bg);
+  transform: translateX(100%);
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+.pd-overlay.open {
+  transform: translateX(0);
+}
+.pd-scroll {
+  height: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+.pd-close {
+  position: fixed;
+  top: 20px; right: 24px;
+  z-index: 910;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 18px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: none;
+  transition: background var(--transition), border-color var(--transition), opacity var(--transition);
+  opacity: 0;
+  pointer-events: none;
+}
+.pd-overlay.open .pd-close {
+  opacity: 1;
+  pointer-events: auto;
+}
+.pd-close:hover {
+  background: var(--bg3);
+  border-color: rgba(191,90,242,0.5);
+}
+.pd-hero-wrap {
+  position: relative;
+  width: 100%;
+  height: 55vh;
+  min-height: 280px;
+  overflow: hidden;
+  background: var(--bg2);
+}
+.pd-hero-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.pd-hero-gradient {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 65%;
+  background: linear-gradient(to bottom, transparent, var(--bg));
+  pointer-events: none;
+}
+.pd-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 32px 100px;
+}
+.pd-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 32px;
+  padding: 10px 18px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: none;
+  transition: color var(--transition), border-color var(--transition), background var(--transition);
+}
+.pd-back:hover {
+  color: var(--text);
+  border-color: rgba(191,90,242,0.4);
+  background: var(--bg3);
+}
+.pd-meta {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--purple);
+  margin-bottom: 12px;
+}
+.pd-title {
+  font-family: var(--font-head);
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+.pd-subtitle {
+  font-size: 16px;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+.pd-tags {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-bottom: 48px;
+}
+.pd-tag {
+  font-size: 11px;
+  color: var(--purple);
+  background: rgba(191,90,242,0.1);
+  border: 1px solid rgba(191,90,242,0.2);
+  border-radius: 100px;
+  padding: 4px 12px;
+}
+.pd-section {
+  margin-bottom: 52px;
+}
+.pd-section-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.pd-desc {
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--muted);
+}
+.pd-process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 16px;
+}
+.pd-process-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 20px;
+}
+.pd-process-card-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--purple);
+  margin-bottom: 10px;
+}
+.pd-process-card-text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.pd-palette {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-start;
+}
+.pd-swatch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.pd-swatch-block {
+  width: 72px; height: 72px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+  cursor: pointer;
+  transition: transform var(--transition);
+}
+.pd-swatch-block:hover { transform: scale(1.08); }
+.pd-swatch-hex {
+  font-size: 11px;
+  font-family: monospace;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+.pd-swatch-name {
+  font-size: 10px;
+  color: var(--muted);
+  opacity: 0.65;
+  text-align: center;
+}
+.pd-figma-frame {
+  width: 100%;
+  height: 520px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--bg2);
+}
+.pd-figma-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  border-radius: 100px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  transition: border-color var(--transition), background var(--transition);
+  cursor: none;
+}
+.pd-figma-link:hover {
+  border-color: rgba(191,90,242,0.45);
+  background: var(--bg3);
+}
+.pd-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+}
+.pd-gallery img {
+  width: 100%; aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  display: block;
+  transition: transform var(--transition);
+  cursor: none;
+}
+.pd-gallery img:hover { transform: scale(1.02); }
+.pd-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.pd-nav-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 22px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: none;
+  transition: border-color var(--transition), transform var(--transition);
+  text-align: left;
+  flex: 1;
+  min-width: 140px;
+}
+.pd-nav-btn.pd-nav-next { text-align: right; }
+.pd-nav-btn:hover {
+  border-color: rgba(191,90,242,0.35);
+  transform: translateY(-2px);
+}
+.pd-nav-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.pd-nav-title {
+  font-family: var(--font-head);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+}
+@media (max-width: 600px) {
+  .pd-hero-wrap { height: 40vh; }
+  .pd-content { padding: 24px 18px 80px; }
+  .pd-process-grid { grid-template-columns: 1fr; }
+  .pd-nav { flex-direction: column; }
+  .pd-nav-btn, .pd-nav-btn.pd-nav-next { text-align: left; flex: none; width: 100%; }
+  .pd-figma-frame { height: 320px; }
+}
 </style>
 </head>
 
@@ -1546,6 +1834,50 @@ body:not(:hover) #cursor-ring { opacity: 0; }
   </div>
 </footer>
 
+<!-- ══ PROJECT DETAIL OVERLAY ══════════════════════════ -->
+<div id="project-detail" class="pd-overlay" role="dialog" aria-modal="true" aria-label="Project detail">
+  <button class="pd-close" id="pd-close" aria-label="Close project">&#x2715;</button>
+  <div class="pd-scroll" id="pd-scroll">
+    <div class="pd-hero-wrap">
+      <img id="pd-hero-img" class="pd-hero-img" src="" alt="" />
+      <div class="pd-hero-gradient"></div>
+    </div>
+    <div class="pd-content">
+      <button class="pd-back" id="pd-back" aria-label="Back to projects">← Back</button>
+      <div class="pd-meta" id="pd-meta"></div>
+      <h1 class="pd-title" id="pd-title"></h1>
+      <p class="pd-subtitle" id="pd-subtitle"></p>
+      <div class="pd-tags" id="pd-tags"></div>
+
+      <div class="pd-section" id="pd-desc-section">
+        <div class="pd-section-label">Overview</div>
+        <p class="pd-desc" id="pd-desc"></p>
+      </div>
+
+      <div class="pd-section" id="pd-process-section">
+        <div class="pd-section-label">Thought Process</div>
+        <div class="pd-process-grid" id="pd-process-grid"></div>
+      </div>
+
+      <div class="pd-section" id="pd-palette-section">
+        <div class="pd-section-label">Colour Palette</div>
+        <div class="pd-palette" id="pd-palette"></div>
+      </div>
+
+      <div class="pd-section" id="pd-figma-section">
+        <div class="pd-section-label">Figma Design</div>
+        <div id="pd-figma"></div>
+      </div>
+
+      <div class="pd-section" id="pd-gallery-section">
+        <div class="pd-section-label">Gallery</div>
+        <div class="pd-gallery" id="pd-gallery"></div>
+      </div>
+
+      <div class="pd-nav" id="pd-nav"></div>
+    </div>
+  </div>
+</div>
 
 <!-- ══════════════════════════════════════════════════════
    JAVASCRIPT
@@ -1642,58 +1974,193 @@ body:not(:hover) #cursor-ring { opacity: 0; }
   const pGrid = $('projects-grid');
 
   function buildProjectCard(proj) {
-    const hasFeat = proj.featured;
-    const hasProcess = proj.process && (proj.process.problem || proj.process.approach || proj.process.outcome);
     const tags = (proj.tags || []).map(t => `<span class="project-tag">${esc(t)}</span>`).join('');
-    const featBadge = hasFeat ? `<span class="project-featured-badge">Featured</span>` : '';
-
-    let processHTML = '';
-    if (hasProcess) {
-      const proc = proj.process;
-      const items = [
-        proc.problem  ? `<div><div class="process-item-label">The Challenge</div><div class="process-item-text">${esc(proc.problem)}</div></div>`  : '',
-        proc.approach ? `<div><div class="process-item-label">My Approach</div><div class="process-item-text">${esc(proc.approach)}</div></div>` : '',
-        proc.outcome  ? `<div><div class="process-item-label">Outcome</div><div class="process-item-text">${esc(proc.outcome)}</div></div>`  : ''
-      ].join('');
-      processHTML = `
-        <button class="process-toggle" data-id="${esc(proj.id)}" aria-expanded="false">
-          ✦ View Process <span class="arrow">↓</span>
-        </button>
-        <div class="process-body" id="process-${esc(proj.id)}">${items}</div>`;
-    }
-
+    const featBadge = proj.featured ? `<span class="project-featured-badge">Featured</span>` : '';
     const card = document.createElement('article');
     card.className = 'project-card reveal';
     card.setAttribute('data-category', proj.category || 'all');
+    card.setAttribute('data-id', proj.id);
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
     card.innerHTML = `
       <div class="project-image-wrap">
         ${featBadge}
         <img src="${esc(proj.image)}" alt="${esc(proj.title)}"
              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" loading="lazy" />
         <div class="img-placeholder" style="display:none; position:absolute; inset:0;">${esc(proj.title)}</div>
-        <div class="project-overlay"><span class="project-overlay-text">View Project</span></div>
+        <div class="project-overlay"><span class="project-overlay-text">View Project →</span></div>
       </div>
       <div class="project-info">
         <div class="project-tags">${tags}</div>
         <h3 class="project-title">${esc(proj.title)}</h3>
         <p class="project-subtitle">${esc(proj.subtitle)}</p>
-        ${processHTML}
       </div>`;
     return card;
   }
 
   C.projects.forEach(proj => pGrid.appendChild(buildProjectCard(proj)));
 
-  /* Process toggle */
+  /* ─── PROJECT DETAIL OVERLAY ─────────────────────── */
+  const pdOverlay = $('project-detail');
+  const pdScroll  = $('pd-scroll');
+
+  function openProject(id) {
+    const proj = (C.projects || []).find(p => p.id === id);
+    if (!proj) return;
+
+    // Hero
+    $('pd-hero-img').src = proj.image || '';
+    $('pd-hero-img').alt = proj.title;
+
+    // Header
+    $('pd-meta').textContent = (proj.category || '').replace(/-/g, ' ').toUpperCase();
+    $('pd-title').textContent = proj.title;
+    $('pd-subtitle').textContent = proj.subtitle;
+    $('pd-tags').innerHTML = (proj.tags || []).map(t => `<span class="pd-tag">${esc(t)}</span>`).join('');
+
+    // Overview
+    const descSec = $('pd-desc-section');
+    if (proj.description) {
+      $('pd-desc').textContent = proj.description;
+      descSec.style.display = '';
+    } else {
+      descSec.style.display = 'none';
+    }
+
+    // Thought process
+    const procSec  = $('pd-process-section');
+    const procGrid = $('pd-process-grid');
+    procGrid.innerHTML = '';
+    const proc = proj.process;
+    if (proc && (proc.problem || proc.approach || proc.outcome)) {
+      [
+        { label: 'The Challenge', text: proc.problem  },
+        { label: 'My Approach',   text: proc.approach },
+        { label: 'Outcome',       text: proc.outcome  }
+      ].forEach(s => {
+        if (!s.text) return;
+        const c = document.createElement('div');
+        c.className = 'pd-process-card';
+        c.innerHTML = `<div class="pd-process-card-label">${esc(s.label)}</div><div class="pd-process-card-text">${esc(s.text)}</div>`;
+        procGrid.appendChild(c);
+      });
+      procSec.style.display = '';
+    } else {
+      procSec.style.display = 'none';
+    }
+
+    // Colour palette
+    const palSec  = $('pd-palette-section');
+    const palette = $('pd-palette');
+    palette.innerHTML = '';
+    if (proj.colors && proj.colors.length) {
+      proj.colors.forEach(col => {
+        const sw = document.createElement('div');
+        sw.className = 'pd-swatch';
+        sw.innerHTML = `
+          <div class="pd-swatch-block" style="background:${esc(col.hex)}" title="${esc(col.hex)}"></div>
+          <div class="pd-swatch-hex">${esc(col.hex)}</div>
+          <div class="pd-swatch-name">${esc(col.name)}</div>`;
+        palette.appendChild(sw);
+      });
+      palSec.style.display = '';
+    } else {
+      palSec.style.display = 'none';
+    }
+
+    // Figma design
+    const figmaSec  = $('pd-figma-section');
+    const figmaWrap = $('pd-figma');
+    figmaWrap.innerHTML = '';
+    if (proj.figmaUrl) {
+      if (proj.figmaUrl.includes('figma.com')) {
+        const embedUrl = proj.figmaUrl.includes('/embed')
+          ? proj.figmaUrl
+          : 'https://www.figma.com/embed?embed_host=portfolio&url=' + encodeURIComponent(proj.figmaUrl);
+        figmaWrap.innerHTML = `<iframe class="pd-figma-frame" src="${esc(embedUrl)}" allowfullscreen title="Figma — ${esc(proj.title)}"></iframe>`;
+      } else {
+        figmaWrap.innerHTML = `<a class="pd-figma-link" href="${esc(proj.figmaUrl)}" target="_blank" rel="noopener noreferrer">↗ Open Figma File</a>`;
+      }
+      figmaSec.style.display = '';
+    } else {
+      figmaSec.style.display = 'none';
+    }
+
+    // Gallery
+    const galSec  = $('pd-gallery-section');
+    const gallery = $('pd-gallery');
+    gallery.innerHTML = '';
+    if (proj.gallery && proj.gallery.length) {
+      proj.gallery.forEach(src => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = proj.title + ' detail';
+        img.loading = 'lazy';
+        gallery.appendChild(img);
+      });
+      galSec.style.display = '';
+    } else {
+      galSec.style.display = 'none';
+    }
+
+    // Prev / Next navigation
+    const navEl = $('pd-nav');
+    navEl.innerHTML = '';
+    const idx  = C.projects.findIndex(p => p.id === id);
+    const prev = C.projects[idx - 1];
+    const next = C.projects[idx + 1];
+    if (prev) {
+      const btn = document.createElement('button');
+      btn.className = 'pd-nav-btn';
+      btn.innerHTML = `<span class="pd-nav-label">← Previous</span><span class="pd-nav-title">${esc(prev.title)}</span>`;
+      btn.addEventListener('click', () => { pdScroll.scrollTo(0, 0); openProject(prev.id); });
+      navEl.appendChild(btn);
+    }
+    if (next) {
+      const btn = document.createElement('button');
+      btn.className = 'pd-nav-btn pd-nav-next';
+      btn.innerHTML = `<span class="pd-nav-label">Next →</span><span class="pd-nav-title">${esc(next.title)}</span>`;
+      btn.addEventListener('click', () => { pdScroll.scrollTo(0, 0); openProject(next.id); });
+      navEl.appendChild(btn);
+    }
+
+    pdScroll.scrollTo(0, 0);
+    pdOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    history.pushState({ projectId: id }, '', '#project-' + id);
+  }
+
+  function closeProject() {
+    pdOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+    if (history.state && history.state.projectId) history.back();
+  }
+
+  $('pd-close').addEventListener('click', closeProject);
+  $('pd-back').addEventListener('click', closeProject);
+
+  window.addEventListener('popstate', () => {
+    if (pdOverlay.classList.contains('open')) {
+      pdOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && pdOverlay.classList.contains('open')) closeProject();
+  });
+
   pGrid.addEventListener('click', e => {
-    const btn = e.target.closest('.process-toggle');
-    if (!btn) return;
-    const id = btn.dataset.id;
-    const body = $('process-' + id);
-    if (!body) return;
-    const isOpen = body.classList.toggle('open');
-    btn.classList.toggle('open', isOpen);
-    btn.setAttribute('aria-expanded', String(isOpen));
+    const card = e.target.closest('.project-card');
+    if (!card) return;
+    openProject(card.dataset.id);
+  });
+
+  pGrid.addEventListener('keydown', e => {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.closest('.project-card')) {
+      e.preventDefault();
+      openProject(e.target.closest('.project-card').dataset.id);
+    }
   });
 
   /* Filter tabs */

@@ -73,6 +73,37 @@ window.PORTFOLIO_CONFIG = {
   /* ── PROJECTS ────────────────────────────────────── */
   projects: [
     {
+      id: "preview-dummy",
+      title: "Aurora Brand System",
+      subtitle: "Full Brand Identity · UI Design",
+      category: "branding",
+      image: "https://picsum.photos/seed/aurora-hero/900/600",
+      tags: ["Brand Identity", "Logo Design", "UI Design", "Typography"],
+      featured: true,
+      description: "Aurora is a conceptual wellness brand built around the science of light and circadian rhythm. The brief called for a system that felt premium yet approachable — something that could live on packaging, digital surfaces, and motion without losing coherence. The challenge was translating an abstract concept (the aurora borealis) into a design language grounded in warmth and clarity.",
+      colors: [
+        { hex: "#0D0D1A", name: "Deep Night"   },
+        { hex: "#3B2F8F", name: "Indigo Core"  },
+        { hex: "#7B5EA7", name: "Dusk Violet"  },
+        { hex: "#E8A87C", name: "Amber Glow"   },
+        { hex: "#F4EFE6", name: "Warm Ivory"   }
+      ],
+      figmaUrl: "https://www.figma.com/community/file/768989692441075977",
+      gallery: [
+        "https://picsum.photos/seed/aurora-g1/700/525",
+        "https://picsum.photos/seed/aurora-g2/700/525",
+        "https://picsum.photos/seed/aurora-g3/700/525",
+        "https://picsum.photos/seed/aurora-g4/700/525",
+        "https://picsum.photos/seed/aurora-g5/700/525",
+        "https://picsum.photos/seed/aurora-g6/700/525"
+      ],
+      process: {
+        problem:  "The client needed a brand that felt simultaneously scientific and emotionally resonant — credible in the wellness space without defaulting to cold clinical aesthetics.",
+        approach: "Started with a deep colour exploration rooted in the actual spectral data of aurora phenomena. Typography was chosen to balance editorial elegance with functional legibility across packaging and app UI. Three logo directions were prototyped in Figma, tested at multiple scales.",
+        outcome:  "A fully documented brand system: logo suite, colour tokens, type hierarchy, iconography, and a component library with 40+ UI elements ready for handoff to developers."
+      }
+    },
+    {
       id: "forevermarks",
       title: "Forevermarks",
       subtitle: "Brand Identity",
@@ -80,6 +111,15 @@ window.PORTFOLIO_CONFIG = {
       image: "images/forevermarks.jpg",
       tags: ["Logo Design", "Brand Guidelines"],
       featured: true,
+      description: "A complete brand identity for Forevermarks — built around the idea that great design, like great memories, lasts forever. The goal was timeless elegance without feeling dated.",
+      colors: [
+        { hex: "#1A1A1A", name: "Obsidian" },
+        { hex: "#C9A96E", name: "Gold Dust" },
+        { hex: "#F5F0E8", name: "Ivory" },
+        { hex: "#6B5C4E", name: "Warm Brown" }
+      ],
+      figmaUrl: "",   // paste Figma share URL here to embed designs
+      gallery: [],    // add image paths e.g. ["images/forevermarks-2.jpg"]
       process: {
         problem:  "Forevermarks needed a timeless identity that communicated permanence and elegance without feeling dated.",
         approach: "Explored typographic lockups and minimalist mark design. Iterated through three distinct directions before landing on a refined serif-meets-geometric solution.",
@@ -94,6 +134,15 @@ window.PORTFOLIO_CONFIG = {
       image: "images/orangemonk.jpg",
       tags: ["Logo Design", "Visual Identity"],
       featured: true,
+      description: "A bold, energetic brand identity for Orangemonk — a lifestyle brand that needed to stand out in a crowded market with personality and warmth.",
+      colors: [
+        { hex: "#FF6B1A", name: "Monk Orange" },
+        { hex: "#1A1A1A", name: "Deep Black" },
+        { hex: "#FFF8F2", name: "Warm White" },
+        { hex: "#FFD4B0", name: "Peach Glow" }
+      ],
+      figmaUrl: "",
+      gallery: [],
       process: {
         problem:  "Orangemonk required a bold, energetic identity that stood out in a crowded lifestyle market.",
         approach: "Developed playful yet professional visual language combining warm orange tones with clean modern typography.",
@@ -108,6 +157,15 @@ window.PORTFOLIO_CONFIG = {
       image: "images/pawzy.jpg",
       tags: ["Logo Design", "Illustration", "Branding"],
       featured: false,
+      description: "A friendly, playful brand identity for a pet-care brand — designed to feel warm, trustworthy, and full of personality.",
+      colors: [
+        { hex: "#F4845F", name: "Playful Coral" },
+        { hex: "#FDEBD0", name: "Soft Peach" },
+        { hex: "#2C3E50", name: "Midnight" },
+        { hex: "#A8D8A8", name: "Sage Green" }
+      ],
+      figmaUrl: "",
+      gallery: [],
       process: null
     },
     {
@@ -118,6 +176,15 @@ window.PORTFOLIO_CONFIG = {
       image: "images/zesty.jpg",
       tags: ["Illustration", "Personal Project"],
       featured: false,
+      description: "A personal illustration project exploring vibrant, citrus-inspired artwork with a focus on expressive colour and bold compositions.",
+      colors: [
+        { hex: "#FFD700", name: "Zest Yellow" },
+        { hex: "#FF6347", name: "Tomato" },
+        { hex: "#32CD32", name: "Lime" },
+        { hex: "#FFFFFF", name: "Clean White" }
+      ],
+      figmaUrl: "",
+      gallery: [],
       process: null
     },
     {
@@ -128,6 +195,10 @@ window.PORTFOLIO_CONFIG = {
       image: "images/posters.jpg",
       tags: ["Poster Design", "Typography"],
       featured: false,
+      description: "A collection of typographic and conceptual poster designs created to sharpen layout, hierarchy, and visual communication skills.",
+      colors: [],
+      figmaUrl: "",
+      gallery: [],
       process: null
     },
     {
@@ -138,6 +209,15 @@ window.PORTFOLIO_CONFIG = {
       image: "images/social-campaign.jpg",
       tags: ["Social Media", "Campaign", "Internship"],
       featured: true,
+      description: "A modular social media campaign system designed during my internship at Visco International — enabling fast, consistent content production across platforms.",
+      colors: [
+        { hex: "#0F3460", name: "Brand Navy" },
+        { hex: "#E94560", name: "Accent Red" },
+        { hex: "#FFFFFF", name: "White" },
+        { hex: "#F5F5F5", name: "Light Grey" }
+      ],
+      figmaUrl: "",
+      gallery: [],
       process: {
         problem:  "The client needed a cohesive social media presence with consistent visuals across multiple platforms.",
         approach: "Designed a modular template system for Instagram posts and stories using brand colours, ensuring visual consistency and fast content production.",
@@ -152,6 +232,14 @@ window.PORTFOLIO_CONFIG = {
       image: "images/car-promo.jpg",
       tags: ["Video Editing", "Motion", "Advertising"],
       featured: false,
+      description: "A cinematic promotional video for a luxury car rental brand — edited to convey speed, elegance, and premium feel.",
+      colors: [
+        { hex: "#0D0D0D", name: "Pitch Black" },
+        { hex: "#C0A060", name: "Gold" },
+        { hex: "#FFFFFF", name: "White" }
+      ],
+      figmaUrl: "",
+      gallery: [],
       process: null
     },
     {
@@ -162,6 +250,10 @@ window.PORTFOLIO_CONFIG = {
       image: "images/illustrations.jpg",
       tags: ["Illustration", "Painting", "Book Cover"],
       featured: false,
+      description: "A collection of original illustrations and paintings spanning book covers, character concepts, and expressive visual art created in Procreate and Photoshop.",
+      colors: [],
+      figmaUrl: "",
+      gallery: [],
       process: null
     }
   ],
