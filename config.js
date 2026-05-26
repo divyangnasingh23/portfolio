@@ -108,7 +108,7 @@ window.PORTFOLIO_CONFIG = {
       title: "Forevermarks",
       subtitle: "Brand Identity",
       category: "branding",
-      image: "images/forevermarks.jpg",
+      image: "assets/forevermarks/fm logo1.png",
       tags: ["Logo Design", "Brand Guidelines"],
       featured: true,
       description: "A complete brand identity for Forevermarks — built around the idea that great design, like great memories, lasts forever. The goal was timeless elegance without feeling dated.",
@@ -119,7 +119,11 @@ window.PORTFOLIO_CONFIG = {
         { hex: "#6B5C4E", name: "Warm Brown" }
       ],
       figmaUrl: "",   // paste Figma share URL here to embed designs
-      gallery: [],    // add image paths e.g. ["images/forevermarks-2.jpg"]
+      gallery: [
+        "assets/forevermarks/fm logo1.png",
+        "assets/forevermarks/fm logo2.png",
+        "assets/forevermarks/fm logo 3 circle.png"
+      ],
       process: {
         problem:  "Forevermarks needed a timeless identity that communicated permanence and elegance without feeling dated.",
         approach: "Explored typographic lockups and minimalist mark design. Iterated through three distinct directions before landing on a refined serif-meets-geometric solution.",
@@ -131,7 +135,7 @@ window.PORTFOLIO_CONFIG = {
       title: "Orangemonk",
       subtitle: "Brand Identity",
       category: "branding",
-      image: "images/orangemonk.jpg",
+      image: "assets/orangemonk/THEORANGEMONK- logotype 2 color white bg.png",
       tags: ["Logo Design", "Visual Identity"],
       featured: true,
       description: "A bold, energetic brand identity for Orangemonk — a lifestyle brand that needed to stand out in a crowded market with personality and warmth.",
@@ -142,7 +146,12 @@ window.PORTFOLIO_CONFIG = {
         { hex: "#FFD4B0", name: "Peach Glow" }
       ],
       figmaUrl: "",
-      gallery: [],
+      gallery: [
+        "assets/orangemonk/THEORANGEMONKicon color .png",
+        "assets/orangemonk/THEORANGEMONK- logotype 2 color white bg.png",
+        "assets/orangemonk/THEORANGEMONK- logotype b&w white bg.png",
+        "assets/orangemonk/THEORANGEMONKlogo vertical color.png"
+      ],
       process: {
         problem:  "Orangemonk required a bold, energetic identity that stood out in a crowded lifestyle market.",
         approach: "Developed playful yet professional visual language combining warm orange tones with clean modern typography.",
@@ -154,7 +163,7 @@ window.PORTFOLIO_CONFIG = {
       title: "Pawzy",
       subtitle: "Brand Identity",
       category: "branding",
-      image: "images/pawzy.jpg",
+      image: "assets/pawzy/pawzy mockup.png",
       tags: ["Logo Design", "Illustration", "Branding"],
       featured: false,
       description: "A friendly, playful brand identity for a pet-care brand — designed to feel warm, trustworthy, and full of personality.",
@@ -165,7 +174,15 @@ window.PORTFOLIO_CONFIG = {
         { hex: "#A8D8A8", name: "Sage Green" }
       ],
       figmaUrl: "",
-      gallery: [],
+      gallery: [
+        "assets/pawzy/pawzypawzy.png",
+        "assets/pawzy/pawzy mockup.png",
+        "assets/pawzy/pawzy mockup2.png",
+        "assets/pawzy/pawzy packaging mockup.png",
+        "assets/pawzy/pawzy ui mobile.png",
+        "assets/pawzy/tote bag pawzy 1.png",
+        "assets/pawzy/tote bag pawzy 2.png"
+      ],
       process: null
     },
     {
@@ -173,7 +190,7 @@ window.PORTFOLIO_CONFIG = {
       title: "Zesty",
       subtitle: "Personal Project",
       category: "illustration",
-      image: "images/zesty.jpg",
+      image: "assets/zesty/1.png",
       tags: ["Illustration", "Personal Project"],
       featured: false,
       description: "A personal illustration project exploring vibrant, citrus-inspired artwork with a focus on expressive colour and bold compositions.",
@@ -184,7 +201,12 @@ window.PORTFOLIO_CONFIG = {
         { hex: "#FFFFFF", name: "Clean White" }
       ],
       figmaUrl: "",
-      gallery: [],
+      gallery: [
+        "assets/zesty/1.png",
+        "assets/zesty/2.png",
+        "assets/zesty/3.png",
+        "assets/zesty/5.png"
+      ],
       process: null
     },
     {
@@ -192,13 +214,20 @@ window.PORTFOLIO_CONFIG = {
       title: "Practice Posters",
       subtitle: "Personal Work",
       category: "illustration",
-      image: "images/posters.jpg",
+      image: "assets/posters/poster2.jpg",
       tags: ["Poster Design", "Typography"],
       featured: false,
       description: "A collection of typographic and conceptual poster designs created to sharpen layout, hierarchy, and visual communication skills.",
       colors: [],
       figmaUrl: "",
-      gallery: [],
+      gallery: [
+        "assets/posters/Poster.jpg",
+        "assets/posters/poster2.jpg",
+        "assets/posters/poster.png",
+        "assets/posters/Kpop Poster.png",
+        "assets/posters/Double Exposure(movie poster).jpg",
+        "assets/posters/MOMO AD POSTER.png"
+      ],
       process: null
     },
     {
@@ -206,7 +235,7 @@ window.PORTFOLIO_CONFIG = {
       title: "Social Media Campaign",
       subtitle: "Internship Project",
       category: "social",
-      image: "images/social-campaign.jpg",
+      image: "assets/internship-social/AAGRBT0C7xk_1761744445968.png",
       tags: ["Social Media", "Campaign", "Internship"],
       featured: true,
       description: "A modular social media campaign system designed during my internship at Visco International — enabling fast, consistent content production across platforms.",
@@ -217,7 +246,9 @@ window.PORTFOLIO_CONFIG = {
         { hex: "#F5F5F5", name: "Light Grey" }
       ],
       figmaUrl: "",
-      gallery: [],
+      gallery: [
+        "assets/internship-social/AAGRBT0C7xk_1761744445968.png"
+      ],
       process: {
         problem:  "The client needed a cohesive social media presence with consistent visuals across multiple platforms.",
         approach: "Designed a modular template system for Instagram posts and stories using brand colours, ensuring visual consistency and fast content production.",
@@ -229,7 +260,7 @@ window.PORTFOLIO_CONFIG = {
       title: "Luxury Car Rental Promo",
       subtitle: "Video Editing",
       category: "video",
-      image: "images/car-promo.jpg",
+      image: "assets/PromoVideo.mp4",
       tags: ["Video Editing", "Motion", "Advertising"],
       featured: false,
       description: "A cinematic promotional video for a luxury car rental brand — edited to convey speed, elegance, and premium feel.",
@@ -247,13 +278,23 @@ window.PORTFOLIO_CONFIG = {
       title: "Illustrations & Paintings",
       subtitle: "Visual Art",
       category: "illustration",
-      image: "images/illustrations.jpg",
+      image: "assets/illustrations/Whale novel poster or book cover.png",
       tags: ["Illustration", "Painting", "Book Cover"],
       featured: false,
       description: "A collection of original illustrations and paintings spanning book covers, character concepts, and expressive visual art created in Procreate and Photoshop.",
       colors: [],
       figmaUrl: "",
-      gallery: [],
+      gallery: [
+        "assets/illustrations/Whale novel poster or book cover.png",
+        "assets/illustrations/Artboard 1.png",
+        "assets/illustrations/kiransid.png",
+        "assets/illustrations/WhatsApp Image 2025-11-07 at 00.05.27_b99c1239.jpg",
+        "assets/illustrations/WhatsApp Image 2025-11-07 at 00.05.27_c8e61629.jpg",
+        "assets/illustrations/WhatsApp Image 2025-11-07 at 00.05.27_31f4bc4e.jpg",
+        "assets/illustrations/WhatsApp Image 2025-11-07 at 00.05.29_b529b430.jpg",
+        "assets/illustrations/WhatsApp Image 2025-11-07 at 00.07.56_c6213cd0.jpg",
+        "assets/illustrations/WhatsApp Image 2025-11-07 at 00.07.56_cf47cb1d.jpg"
+      ],
       process: null
     }
   ],
