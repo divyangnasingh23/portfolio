@@ -72,37 +72,37 @@ window.PORTFOLIO_CONFIG = {
 
   /* ── PROJECTS ────────────────────────────────────── */
   projects: [
-    {
-      id: "preview-dummy",
-      title: "Aurora Brand System",
-      subtitle: "Full Brand Identity · UI Design",
-      category: "branding",
-      image: "https://picsum.photos/seed/aurora-hero/900/600",
-      tags: ["Brand Identity", "Logo Design", "UI Design", "Typography"],
-      featured: true,
-      description: "Aurora is a conceptual wellness brand built around the science of light and circadian rhythm. The brief called for a system that felt premium yet approachable — something that could live on packaging, digital surfaces, and motion without losing coherence. The challenge was translating an abstract concept (the aurora borealis) into a design language grounded in warmth and clarity.",
-      colors: [
-        { hex: "#0D0D1A", name: "Deep Night"   },
-        { hex: "#3B2F8F", name: "Indigo Core"  },
-        { hex: "#7B5EA7", name: "Dusk Violet"  },
-        { hex: "#E8A87C", name: "Amber Glow"   },
-        { hex: "#F4EFE6", name: "Warm Ivory"   }
-      ],
-      figmaUrl: "https://www.figma.com/community/file/768989692441075977",
-      gallery: [
-        "https://picsum.photos/seed/aurora-g1/700/525",
-        "https://picsum.photos/seed/aurora-g2/700/525",
-        "https://picsum.photos/seed/aurora-g3/700/525",
-        "https://picsum.photos/seed/aurora-g4/700/525",
-        "https://picsum.photos/seed/aurora-g5/700/525",
-        "https://picsum.photos/seed/aurora-g6/700/525"
-      ],
-      process: {
-        problem:  "The client needed a brand that felt simultaneously scientific and emotionally resonant — credible in the wellness space without defaulting to cold clinical aesthetics.",
-        approach: "Started with a deep colour exploration rooted in the actual spectral data of aurora phenomena. Typography was chosen to balance editorial elegance with functional legibility across packaging and app UI. Three logo directions were prototyped in Figma, tested at multiple scales.",
-        outcome:  "A fully documented brand system: logo suite, colour tokens, type hierarchy, iconography, and a component library with 40+ UI elements ready for handoff to developers."
-      }
-    },
+    // {
+    //   id: "preview-dummy",
+    //   title: "Aurora Brand System",
+    //   subtitle: "Full Brand Identity · UI Design",
+    //   category: "branding",
+    //   image: "https://picsum.photos/seed/aurora-hero/900/600",
+    //   tags: ["Brand Identity", "Logo Design", "UI Design", "Typography"],
+    //   featured: true,
+    //   description: "Aurora is a conceptual wellness brand built around the science of light and circadian rhythm. The brief called for a system that felt premium yet approachable — something that could live on packaging, digital surfaces, and motion without losing coherence. The challenge was translating an abstract concept (the aurora borealis) into a design language grounded in warmth and clarity.",
+    //   colors: [
+    //     { hex: "#0D0D1A", name: "Deep Night"   },
+    //     { hex: "#3B2F8F", name: "Indigo Core"  },
+    //     { hex: "#7B5EA7", name: "Dusk Violet"  },
+    //     { hex: "#E8A87C", name: "Amber Glow"   },
+    //     { hex: "#F4EFE6", name: "Warm Ivory"   }
+    //   ],
+    //   figmaUrl: "https://www.figma.com/community/file/768989692441075977",
+    //   gallery: [
+    //     "https://picsum.photos/seed/aurora-g1/700/525",
+    //     "https://picsum.photos/seed/aurora-g2/700/525",
+    //     "https://picsum.photos/seed/aurora-g3/700/525",
+    //     "https://picsum.photos/seed/aurora-g4/700/525",
+    //     "https://picsum.photos/seed/aurora-g5/700/525",
+    //     "https://picsum.photos/seed/aurora-g6/700/525"
+    //   ],
+    //   process: {
+    //     problem:  "The client needed a brand that felt simultaneously scientific and emotionally resonant — credible in the wellness space without defaulting to cold clinical aesthetics.",
+    //     approach: "Started with a deep colour exploration rooted in the actual spectral data of aurora phenomena. Typography was chosen to balance editorial elegance with functional legibility across packaging and app UI. Three logo directions were prototyped in Figma, tested at multiple scales.",
+    //     outcome:  "A fully documented brand system: logo suite, colour tokens, type hierarchy, iconography, and a component library with 40+ UI elements ready for handoff to developers."
+    //   }
+    // },
     {
       id: "forevermarks",
       title: "Forevermarks",
@@ -362,24 +362,12 @@ window.PORTFOLIO_CONFIG = {
 
   /* ── TESTIMONIALS ─────────────────────────────────── */
   testimonials: [
-    {
-      quote: "Divyangna brought our brand vision to life with incredible precision and creativity. The final identity system exceeded every expectation.",
-      name: "Client Name",           // ← Fill in
-      role: "Founder",               // ← Fill in
-      company: "Company Name"        // ← Fill in
-    },
-    {
-      quote: "Working with Divyangna was seamless — she understood the brief instantly, communicated clearly throughout, and delivered stunning work on time.",
-      name: "Client Name",           // ← Fill in
-      role: "Marketing Manager",     // ← Fill in
-      company: "Company Name"        // ← Fill in
-    },
-    {
-      quote: "Her illustrations gave our publication a personality we didn't know it was missing. Truly gifted visual storyteller.",
-      name: "Client Name",           // ← Fill in
-      role: "Editor",                // ← Fill in
-      company: "Publication Name"    // ← Fill in
-    }
+    // {
+    //   quote: "Divyangna brought our brand vision to life with incredible precision and creativity. The final identity system exceeded every expectation.",
+    //   name: "Client Name",           // ← Fill in
+    //   role: "Founder",               // ← Fill in
+    //   company: "Company Name"        // ← Fill in
+    // }
   ]
 
 };

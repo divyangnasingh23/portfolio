@@ -67,7 +67,7 @@ button { cursor: none; }
   pointer-events: none;
   z-index: 9999;
   border-radius: 50%;
-  transform: translate(-50%,-50%);
+  will-change: transform;
   transition: opacity 0.3s;
 }
 #cursor-dot {
@@ -181,7 +181,7 @@ body:not(:hover) #cursor-ring { opacity: 0; }
   top: 0; left: 0; right: 0;
   z-index: 1000;
   padding: 18px 0;
-  transition: background 0.4s, box-shadow 0.4s, padding 0.4s;
+  transition: box-shadow 0.4s;
 }
 #navbar.scrolled {
   background: rgba(10,10,15,0.85);
@@ -301,6 +301,7 @@ body:not(:hover) #cursor-ring { opacity: 0; }
   border-radius: 50%;
   filter: blur(100px);
   opacity: 0.18;
+  will-change: transform;
 }
 .hero-bg-blob:nth-child(1) {
   width: 600px; height: 600px;
@@ -507,6 +508,7 @@ body:not(:hover) #cursor-ring { opacity: 0; }
   display: flex;
   animation: marquee 22s linear infinite;
   white-space: nowrap;
+  will-change: transform;
 }
 .marquee-track:hover { animation-play-state: paused; }
 .marquee-item {
@@ -719,6 +721,80 @@ body:not(:hover) #cursor-ring { opacity: 0; }
 }
 .project-card:hover .project-image-wrap img {
   transform: scale(1.06);
+}
+.video-tile {
+  width: 100%; height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #0f0f1a 0%, #1a1030 100%);
+  color: #fff;
+  cursor: none;
+  user-select: none;
+}
+.video-tile .vt-icon {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--grad);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+  position: relative;
+  transition: transform 0.25s;
+}
+.video-tile .vt-icon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(191,90,242,0.4);
+  transform: scale(1);
+  opacity: 0;
+}
+.project-card:hover .video-tile .vt-icon {
+  transform: scale(1.12);
+}
+.project-card:hover .video-tile .vt-icon::after,
+.pd-gallery .video-tile:hover .vt-icon::after {
+  animation: pulse-ring 1.2s ease-out infinite;
+}
+@keyframes pulse-ring {
+  0%   { transform: scale(1);   opacity: 0.5; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+.video-tile .vt-label {
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+}
+/* video tile inside pd-hero */
+.pd-hero-wrap .video-tile {
+  position: absolute;
+  inset: 0;
+}
+/* video tile inside gallery */
+.pd-gallery .video-tile {
+  aspect-ratio: 4/3;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  cursor: zoom-in;
+  transition: box-shadow var(--transition);
+}
+.pd-gallery .video-tile:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.5); }
+.pd-gallery .video-tile:hover .vt-icon {
+  transform: scale(1.12);
+}
+/* lightbox video */
+#lightbox video {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: var(--radius);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.8);
+  outline: none;
 }
 .project-overlay {
   position: absolute;
@@ -1101,6 +1177,15 @@ body:not(:hover) #cursor-ring { opacity: 0; }
   font-size: 12px;
   color: var(--muted);
 }
+.testimonials-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--muted);
+  font-size: 15px;
+  padding: 48px 0;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+}
 
 /* ═══════════════════════════════════════════════════════
    CONTACT
@@ -1111,8 +1196,9 @@ body:not(:hover) #cursor-ring { opacity: 0; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 64px;
-  align-items: start;
+  align-items: center;
 }
+.contact-left { display: flex; flex-direction: column; }
 
 .contact-headline {
   font-family: var(--font-head);
@@ -1128,96 +1214,72 @@ body:not(:hover) #cursor-ring { opacity: 0; }
   margin-bottom: 32px;
   line-height: 1.7;
 }
-.contact-links { display: flex; flex-direction: column; gap: 16px; margin-bottom: 36px; }
-.contact-link {
-  display: inline-flex;
-  align-items: center;
+.contact-links {
+  display: flex;
+  flex-direction: column;
   gap: 12px;
-  font-size: 15px;
-  color: var(--text);
-  transition: color var(--transition);
 }
-.contact-link:hover { color: var(--purple); }
-.contact-link-icon {
-  width: 40px; height: 40px;
-  border-radius: 10px;
-  background: var(--bg3);
-  border: 1px solid var(--border);
+.connect-card {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 16px;
+  gap: 20px;
+  padding: 20px 24px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--bg2);
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+.connect-card:hover {
+  border-color: var(--purple);
+  box-shadow: 0 8px 32px rgba(191,90,242,0.12);
+  transform: translateY(-2px);
+}
+.connect-card-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
   transition: border-color var(--transition), box-shadow var(--transition);
 }
-.contact-link:hover .contact-link-icon {
+.connect-card:hover .connect-card-icon {
   border-color: var(--purple);
   box-shadow: 0 0 16px rgba(191,90,242,0.2);
 }
-
-.social-row { display: flex; gap: 12px; flex-wrap: wrap; }
-.social-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 9px 18px;
-  border-radius: 100px;
-  font-size: 13px;
-  font-weight: 500;
-  border: 1px solid var(--border);
+.connect-card-body { flex: 1; min-width: 0; }
+.connect-card-label {
+  font-family: var(--font-head);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: var(--muted);
-  transition: var(--transition);
+  margin-bottom: 3px;
 }
-.social-btn:hover {
-  border-color: var(--purple);
-  color: var(--text);
-  transform: translateY(-2px);
+.connect-card-value {
+  font-size: 15px;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.connect-card-arrow {
+  color: var(--muted);
+  font-size: 18px;
+  flex-shrink: 0;
+  transition: color var(--transition), transform var(--transition);
+}
+.connect-card:hover .connect-card-arrow {
+  color: var(--purple);
+  transform: translateX(4px);
 }
 
 /* Contact form */
-.contact-form { display: flex; flex-direction: column; gap: 16px; }
-.form-group { display: flex; flex-direction: column; gap: 8px; }
-.form-label { font-size: 13px; font-weight: 500; color: var(--muted); letter-spacing: 0.04em; }
 
-.form-input,
-.form-textarea {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  color: var(--text);
-  font-family: var(--font-body);
-  font-size: 15px;
-  padding: 13px 16px;
-  transition: border-color 0.25s, box-shadow 0.25s;
-  outline: none;
-  width: 100%;
-}
-.form-input:focus,
-.form-textarea:focus {
-  border-color: var(--purple);
-  box-shadow: 0 0 0 3px rgba(191,90,242,0.12);
-}
-.form-input::placeholder,
-.form-textarea::placeholder { color: var(--muted); opacity: 0.6; }
-.form-textarea { resize: vertical; min-height: 130px; }
-
-.form-submit {
-  align-self: flex-start;
-  padding: 14px 32px;
-  border-radius: 100px;
-  font-family: var(--font-body);
-  font-size: 15px;
-  font-weight: 500;
-  background: var(--grad);
-  color: #fff;
-  border: none;
-  transition: opacity var(--transition), transform var(--transition), box-shadow var(--transition);
-  cursor: none;
-}
-.form-submit:hover {
-  opacity: 0.85;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(191,90,242,0.35);
-}
 
 /* ═══════════════════════════════════════════════════════
    FOOTER
@@ -1255,7 +1317,6 @@ body:not(:hover) #cursor-ring { opacity: 0; }
   .hero-inner { grid-template-columns: 1fr 340px; gap: 40px; }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
   .about-grid { grid-template-columns: 1fr 320px; gap: 40px; }
-  .contact-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
 }
 
 @media (max-width: 768px) {
@@ -1277,7 +1338,7 @@ body:not(:hover) #cursor-ring { opacity: 0; }
   .about-grid { grid-template-columns: 1fr; }
   .about-visual { display: none; }
   .testimonials-grid { grid-template-columns: 1fr; }
-  .contact-inner { grid-template-columns: 1fr; }
+  .contact-inner { grid-template-columns: 1fr; gap: 40px; }
   .footer-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
 
   .hero-chip-1, .hero-chip-2, .hero-chip-3 { display: none; }
@@ -1356,6 +1417,16 @@ body:not(:hover) #cursor-ring { opacity: 0; }
   height: 65%;
   background: linear-gradient(to bottom, transparent, var(--bg));
   pointer-events: none;
+}
+/* empty / video-only hero placeholder */
+.pd-hero-wrap.pd-hero-empty::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 10% 20%, rgba(255,45,85,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 70% at 85% 70%, rgba(191,90,242,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 50% 50%, rgba(94,92,230,0.10) 0%, transparent 60%);
 }
 .pd-content {
   max-width: 800px;
@@ -1526,10 +1597,91 @@ body:not(:hover) #cursor-ring { opacity: 0; }
   border-radius: var(--radius-sm);
   border: 1px solid var(--border);
   display: block;
-  transition: transform var(--transition);
-  cursor: none;
+  transition: transform var(--transition), box-shadow var(--transition);
+  cursor: zoom-in;
 }
-.pd-gallery img:hover { transform: scale(1.02); }
+.pd-gallery img:hover { transform: scale(1.02); box-shadow: 0 8px 32px rgba(0,0,0,0.5); }
+
+/* ── LIGHTBOX ── */
+#lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+#lightbox.lb-open {
+  opacity: 1;
+  pointer-events: all;
+}
+#lightbox .lb-img-wrap {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: var(--radius);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.8);
+  user-select: none;
+}
+#lightbox .lb-close {
+  position: fixed;
+  top: 20px; right: 24px;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #fff;
+  font-size: 22px;
+  line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  z-index: 10001;
+}
+#lightbox .lb-close:hover { background: rgba(255,45,85,0.4); transform: scale(1.1); }
+#lightbox .lb-arrow {
+  position: fixed;
+  top: 50%; transform: translateY(-50%);
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #fff;
+  font-size: 22px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  user-select: none;
+  z-index: 10001;
+}
+#lightbox .lb-arrow:hover { background: rgba(255,255,255,0.18); }
+#lightbox .lb-prev { left: 16px; }
+#lightbox .lb-next { right: 16px; }
+#lightbox .lb-prev:hover { transform: translateY(-50%) scale(1.1); }
+#lightbox .lb-next:hover { transform: translateY(-50%) scale(1.1); }
+#lightbox .lb-counter {
+  position: fixed;
+  bottom: 20px; left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.08em;
+}
 .pd-nav {
   display: flex;
   justify-content: space-between;
@@ -1782,37 +1934,13 @@ body:not(:hover) #cursor-ring { opacity: 0; }
 <section id="contact" aria-label="Contact">
   <div class="container">
     <div class="contact-inner">
-      <div>
+      <div class="contact-left">
         <p class="section-label reveal">Get in Touch</p>
         <h2 class="contact-headline reveal">Let's Create Something<br><span class="grad-text">Together —</span></h2>
         <p class="contact-sub reveal" id="contact-sub">Whether you have a full-time role in mind or a project to collaborate on, I'd love to hear from you.</p>
-        <div class="contact-links reveal reveal-delay-1" id="contact-links">
-          <!-- Populated by JS -->
-        </div>
-        <div class="social-row reveal reveal-delay-2" id="social-row">
-          <!-- Populated by JS -->
-        </div>
       </div>
-      <div class="reveal reveal-delay-1">
-        <form class="contact-form" id="contact-form" aria-label="Contact form">
-          <div class="form-group">
-            <label class="form-label" for="form-name">Your Name</label>
-            <input class="form-input" id="form-name" name="name" type="text" placeholder="Name" required autocomplete="name" />
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="form-email">Email Address</label>
-            <input class="form-input" id="form-email" name="email" type="email" placeholder="email@example.com" required autocomplete="email" />
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="form-subject">Subject</label>
-            <input class="form-input" id="form-subject" name="subject" type="text" placeholder="Full-time opportunity / Freelance project" />
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="form-message">Message</label>
-            <textarea class="form-textarea" id="form-message" name="message" placeholder="Tell me about your project or opportunity..." required></textarea>
-          </div>
-          <button class="form-submit" type="submit">Send Message →</button>
-        </form>
+      <div class="contact-links reveal reveal-delay-1" id="contact-links">
+        <!-- Populated by JS -->
       </div>
     </div>
   </div>
@@ -1838,7 +1966,7 @@ body:not(:hover) #cursor-ring { opacity: 0; }
 <div id="project-detail" class="pd-overlay" role="dialog" aria-modal="true" aria-label="Project detail">
   <button class="pd-close" id="pd-close" aria-label="Close project">&#x2715;</button>
   <div class="pd-scroll" id="pd-scroll">
-    <div class="pd-hero-wrap">
+    <div class="pd-hero-wrap" id="pd-hero-wrap">
       <img id="pd-hero-img" class="pd-hero-img" src="" alt="" />
       <div class="pd-hero-gradient"></div>
     </div>
@@ -1877,6 +2005,18 @@ body:not(:hover) #cursor-ring { opacity: 0; }
       <div class="pd-nav" id="pd-nav"></div>
     </div>
   </div>
+</div>
+
+<!-- ══ LIGHTBOX ════════════════════════════════════════ -->
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button class="lb-close" id="lb-close" aria-label="Close preview">&#x2715;</button>
+  <button class="lb-arrow lb-prev" id="lb-prev" aria-label="Previous image">&#8592;</button>
+  <div class="lb-img-wrap">
+    <img id="lb-img" src="" alt="" />
+    <video id="lb-video" style="display:none" playsinline preload="none"></video>
+  </div>
+  <button class="lb-arrow lb-next" id="lb-next" aria-label="Next image">&#8594;</button>
+  <div class="lb-counter" id="lb-counter"></div>
 </div>
 
 <!-- ══════════════════════════════════════════════════════
@@ -1982,12 +2122,19 @@ body:not(:hover) #cursor-ring { opacity: 0; }
     card.setAttribute('data-id', proj.id);
     card.setAttribute('role', 'button');
     card.setAttribute('tabindex', '0');
+    const isVideo = /\.mp4$/i.test(proj.image || '');
+    const thumbHtml = isVideo
+      ? `<div class="video-tile">
+           <div class="vt-icon">&#9654;</div>
+           <span class="vt-label">Play Video</span>
+         </div>`
+      : `<img src="${esc(proj.image)}" alt="${esc(proj.title)}"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" loading="lazy" />
+         <div class="img-placeholder" style="display:none; position:absolute; inset:0;">${esc(proj.title)}</div>`;
     card.innerHTML = `
       <div class="project-image-wrap">
         ${featBadge}
-        <img src="${esc(proj.image)}" alt="${esc(proj.title)}"
-             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" loading="lazy" />
-        <div class="img-placeholder" style="display:none; position:absolute; inset:0;">${esc(proj.title)}</div>
+        ${thumbHtml}
         <div class="project-overlay"><span class="project-overlay-text">View Project →</span></div>
       </div>
       <div class="project-info">
@@ -2008,9 +2155,28 @@ body:not(:hover) #cursor-ring { opacity: 0; }
     const proj = (C.projects || []).find(p => p.id === id);
     if (!proj) return;
 
-    // Hero
-    $('pd-hero-img').src = proj.image || '';
-    $('pd-hero-img').alt = proj.title;
+    // Hero — use first non-video image; hide hero entirely if none exists
+    const heroWrap = $('pd-hero-wrap');
+    const heroImg  = $('pd-hero-img');
+    // Remove any leftover video-tile from a previous open
+    const oldVt = heroWrap.querySelector('.video-tile');
+    if (oldVt) oldVt.remove();
+
+    const firstImage = (/\.mp4$/i.test(proj.image || ''))
+      ? (proj.gallery || []).find(s => !/\.mp4$/i.test(s))
+      : proj.image;
+
+    if (firstImage) {
+      heroImg.style.display = '';
+      heroImg.src = firstImage;
+      heroImg.alt = proj.title;
+      heroWrap.classList.remove('pd-hero-empty');
+    } else {
+      heroImg.style.display = 'none';
+      heroImg.src = '';
+      heroWrap.classList.add('pd-hero-empty');
+    }
+    heroWrap.style.display = '';
 
     // Header
     $('pd-meta').textContent = (proj.category || '').replace(/-/g, ' ').toUpperCase();
@@ -2090,13 +2256,31 @@ body:not(:hover) #cursor-ring { opacity: 0; }
     const galSec  = $('pd-gallery-section');
     const gallery = $('pd-gallery');
     gallery.innerHTML = '';
-    if (proj.gallery && proj.gallery.length) {
-      proj.gallery.forEach(src => {
+
+    // Collect all video sources: image field (if mp4) + any mp4s in gallery array
+    const videoSrcs = [];
+    if (/\.mp4$/i.test(proj.image || '')) videoSrcs.push(proj.image);
+    (proj.gallery || []).forEach(s => { if (/\.mp4$/i.test(s)) videoSrcs.push(s); });
+    // Deduplicate
+    const uniqueVideoSrcs = [...new Set(videoSrcs)];
+
+    const imageSrcs = (proj.gallery || []).filter(s => !/\.mp4$/i.test(s));
+
+    if (imageSrcs.length || uniqueVideoSrcs.length) {
+      imageSrcs.forEach(src => {
         const img = document.createElement('img');
         img.src = src;
         img.alt = proj.title + ' detail';
         img.loading = 'lazy';
+        img.addEventListener('click', () => lbOpen(imageSrcs, imageSrcs.indexOf(src)));
         gallery.appendChild(img);
+      });
+      uniqueVideoSrcs.forEach(src => {
+        const tile = document.createElement('div');
+        tile.className = 'video-tile';
+        tile.innerHTML = `<div class="vt-icon">&#9654;</div><span class="vt-label">Play Video</span>`;
+        tile.addEventListener('click', () => lbOpenVideo(src));
+        gallery.appendChild(tile);
       });
       galSec.style.display = '';
     } else {
@@ -2226,65 +2410,66 @@ body:not(:hover) #cursor-ring { opacity: 0; }
     toolsGrid.appendChild(row);
   });
 
-  /* ─── TESTIMONIALS ──────────���───────────────── */
+  /* ─── TESTIMONIALS ──────────────────────────── */
   const tTestGrid = $('testimonials-grid');
-  C.testimonials.forEach((t, i) => {
-    const initials = t.name.split(' ').map(n => n[0]).join('').slice(0, 2);
-    const card = document.createElement('div');
-    card.className = 'testimonial-card reveal reveal-delay-' + (i + 1);
-    card.innerHTML = `
-      <span class="testimonial-quote-mark">"</span>
-      <p class="testimonial-text">${esc(t.quote)}</p>
-      <div class="testimonial-author">
-        <div class="testimonial-avatar">${esc(initials)}</div>
-        <div>
-          <div class="testimonial-name">${esc(t.name)}</div>
-          <div class="testimonial-role">${esc(t.role)}${t.company ? ', ' + esc(t.company) : ''}</div>
-        </div>
-      </div>`;
-    tTestGrid.appendChild(card);
-  });
+  if (!C.testimonials || C.testimonials.length === 0) {
+    tTestGrid.innerHTML = '<p class="testimonials-empty">No testimonials available as of now.</p>';
+  } else {
+    C.testimonials.forEach((t, i) => {
+      const initials = t.name.split(' ').map(n => n[0]).join('').slice(0, 2);
+      const card = document.createElement('div');
+      card.className = 'testimonial-card reveal reveal-delay-' + (i + 1);
+      card.innerHTML = `
+        <span class="testimonial-quote-mark">"</span>
+        <p class="testimonial-text">${esc(t.quote)}</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">${esc(initials)}</div>
+          <div>
+            <div class="testimonial-name">${esc(t.name)}</div>
+            <div class="testimonial-role">${esc(t.role)}${t.company ? ', ' + esc(t.company) : ''}</div>
+          </div>
+        </div>`;
+      tTestGrid.appendChild(card);
+    });
+  }
 
   /* ─── CONTACT LINKS ─────────────────────────── */
   const cLinks = $('contact-links');
-  cLinks.innerHTML = `
-    <a class="contact-link" href="mailto:${esc(p.email)}">
-      <span class="contact-link-icon">✉</span>
-      ${esc(p.email)}
-    </a>
-    <a class="contact-link" href="tel:${esc(p.phone.replace(/\s/g,''))}">
-      <span class="contact-link-icon">☎</span>
-      ${esc(p.phone)}
-    </a>`;
-
-  const sRow = $('social-row');
   const socials = C.socials || {};
+
+  // Always show email
+  const connectItems = [
+    { href: 'mailto:' + p.email, icon: '✉', label: 'Email', value: p.email, external: false }
+  ];
+
+  // Socials: only add if value is set and not "#"
   const socialDefs = [
-    { key: 'behance',   label: 'Behance',   icon: 'Be' },
-    { key: 'linkedin',  label: 'LinkedIn',  icon: 'in' },
-    { key: 'instagram', label: 'Instagram', icon: '◎'  }
+    { key: 'linkedin',  icon: 'in', label: 'LinkedIn',
+      display: v => v.replace(/^https?:\/\/(www\.)?linkedin\.com\/in\//, 'linkedin.com/in/') },
+    { key: 'behance',   icon: 'Be', label: 'Behance',
+      display: v => v.replace(/^https?:\/\/(www\.)?behance\.net\//, 'behance.net/') },
+    { key: 'instagram', icon: '◎', label: 'Instagram',
+      display: v => v.replace(/^https?:\/\/(www\.)?instagram\.com\//, '@').replace(/\/$/, '') }
   ];
   socialDefs.forEach(s => {
-    if (!socials[s.key] || socials[s.key] === '#') return;
-    const a = document.createElement('a');
-    a.className = 'social-btn';
-    a.href = socials[s.key];
-    a.target = '_blank';
-    a.rel = 'noopener noreferrer';
-    a.innerHTML = `<strong>${esc(s.icon)}</strong> ${esc(s.label)}`;
-    sRow.appendChild(a);
+    const url = socials[s.key];
+    if (!url || url === '#') return;
+    connectItems.push({ href: url, icon: s.icon, label: s.label, value: s.display(url), external: true });
   });
 
-  /* ─── CONTACT FORM ──────────────────────────── */
-  $('contact-form').addEventListener('submit', function (e) {
-    e.preventDefault();
-    const name    = $('form-name').value.trim();
-    const email   = $('form-email').value.trim();
-    const subject = $('form-subject').value.trim();
-    const message = $('form-message').value.trim();
-    const mailtoBody = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message);
-    const mailtoSubj = encodeURIComponent(subject || 'Portfolio Enquiry');
-    window.location.href = 'mailto:' + p.email + '?subject=' + mailtoSubj + '&body=' + mailtoBody;
+  connectItems.forEach(item => {
+    const a = document.createElement('a');
+    a.className = 'connect-card';
+    a.href = item.href;
+    if (item.external) { a.target = '_blank'; a.rel = 'noopener noreferrer'; }
+    a.innerHTML = `
+      <span class="connect-card-icon">${esc(item.icon)}</span>
+      <span class="connect-card-body">
+        <span class="connect-card-label">${esc(item.label)}</span>
+        <span class="connect-card-value">${esc(item.value)}</span>
+      </span>
+      <span class="connect-card-arrow">→</span>`;
+    cLinks.appendChild(a);
   });
 
   /* ─── NAVBAR SCROLL ─────────────────────────── */
@@ -2313,29 +2498,29 @@ body:not(:hover) #cursor-ring { opacity: 0; }
 
   document.addEventListener('mousemove', e => {
     mx = e.clientX; my = e.clientY;
-    dot.style.left = mx + 'px';
-    dot.style.top  = my + 'px';
-  });
+    dot.style.transform = `translate(calc(${mx}px - 50%), calc(${my}px - 50%))`;
+  }, { passive: true });
 
   (function animateRing() {
     rx += (mx - rx) * 0.12;
     ry += (my - ry) * 0.12;
-    ring.style.left = rx + 'px';
-    ring.style.top  = ry + 'px';
+    ring.style.transform = `translate(calc(${rx}px - 50%), calc(${ry}px - 50%))`;
     requestAnimationFrame(animateRing);
   })();
 
-  document.querySelectorAll('a, button, .filter-tab, .process-toggle, .tool-chip, .project-card').forEach(el => {
-    el.addEventListener('mouseenter', () => {
+  document.addEventListener('mouseover', e => {
+    if (e.target.closest('a, button, .filter-tab, .process-toggle, .tool-chip, .project-card')) {
       ring.style.width  = '56px';
       ring.style.height = '56px';
       ring.style.borderColor = 'rgba(255,45,85,0.6)';
-    });
-    el.addEventListener('mouseleave', () => {
+    }
+  });
+  document.addEventListener('mouseout', e => {
+    if (e.target.closest('a, button, .filter-tab, .process-toggle, .tool-chip, .project-card')) {
       ring.style.width  = '36px';
       ring.style.height = '36px';
       ring.style.borderColor = 'rgba(191,90,242,0.6)';
-    });
+    }
   });
 
   /* ─── SCROLL REVEAL (IntersectionObserver) ─── */
@@ -2370,6 +2555,16 @@ body:not(:hover) #cursor-ring { opacity: 0; }
 
   $$('.stat-number').forEach(el => countObserver.observe(el));
 
+  /* ─── BLOB ANIMATION PAUSE when off-screen ─── */
+  const heroBg = document.querySelector('.hero-bg');
+  if (heroBg) {
+    const blobs = heroBg.querySelectorAll('.hero-bg-blob');
+    new IntersectionObserver(([entry]) => {
+      const state = entry.isIntersecting ? 'running' : 'paused';
+      blobs.forEach(b => { b.style.animationPlayState = state; });
+    }, { threshold: 0 }).observe(heroBg);
+  }
+
   /* ─── SMOOTH SCROLL for anchor links ────────── */
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
@@ -2382,6 +2577,82 @@ body:not(:hover) #cursor-ring { opacity: 0; }
 
   /* ─── Re-observe dynamically added .reveal ─── */
   $$('.reveal').forEach(el => revealObserver.observe(el));
+
+  /* ─── LIGHTBOX ───────────────────────────────── */
+  const lb       = document.getElementById('lightbox');
+  const lbImg    = document.getElementById('lb-img');
+  const lbClose  = document.getElementById('lb-close');
+  const lbPrev   = document.getElementById('lb-prev');
+  const lbNext   = document.getElementById('lb-next');
+  const lbCounter = document.getElementById('lb-counter');
+
+  let lbSrcs  = [];
+  let lbIndex = 0;
+
+  function lbShow(idx) {
+    lbIndex = (idx + lbSrcs.length) % lbSrcs.length;
+    lbImg.src = lbSrcs[lbIndex];
+    lbCounter.textContent = (lbIndex + 1) + ' / ' + lbSrcs.length;
+    lbPrev.style.display = lbSrcs.length > 1 ? '' : 'none';
+    lbNext.style.display = lbSrcs.length > 1 ? '' : 'none';
+  }
+
+  function lbOpen(srcs, startIdx) {
+    lbSrcs = srcs;
+    lbShow(startIdx);
+    lb.classList.add('lb-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function lbClose_() {
+    lb.classList.remove('lb-open');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+    // pause and reset the reusable video element
+    const lbVid = $('lb-video');
+    lbVid.pause();
+    lbVid.src = '';
+    lbVid.style.display = 'none';
+    lbImg.style.display = '';
+    lbPrev.style.display = '';
+    lbNext.style.display = '';
+    lbCounter.style.display = '';
+  }
+
+  function lbOpenVideo(src) {
+    lbSrcs = [];
+    lbImg.style.display = 'none';
+    lbPrev.style.display = 'none';
+    lbNext.style.display = 'none';
+    lbCounter.style.display = 'none';
+    const lbVid = $('lb-video');
+    lbVid.src = src;
+    lbVid.controls = true;
+    lbVid.style.display = '';
+    lbVid.play().catch(() => {});
+    lb.classList.add('lb-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  window.lbOpenVideo = lbOpenVideo;
+
+  lbClose.addEventListener('click', lbClose_);
+  lbPrev.addEventListener('click', () => lbShow(lbIndex - 1));
+  lbNext.addEventListener('click', () => lbShow(lbIndex + 1));
+
+  lb.addEventListener('click', e => {
+    if (e.target === lb) lbClose_();
+  });
+
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('lb-open')) return;
+    if (e.key === 'Escape')      lbClose_();
+    if (e.key === 'ArrowLeft')   lbShow(lbIndex - 1);
+    if (e.key === 'ArrowRight')  lbShow(lbIndex + 1);
+  });
+
+  // Expose lbOpen so gallery click handlers can call it
+  window.lbOpen = lbOpen;
 
 })();
 </script>
