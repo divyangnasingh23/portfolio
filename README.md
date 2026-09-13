@@ -1,26 +1,34 @@
-# Divyangna Singh — Portfolio
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-Personal portfolio website for Divyangna Singh, Brand Identity & Visual Storytelling Designer.
+## Getting Started
 
-## Stack
+First, run the development server:
 
-Pure HTML, CSS, and JavaScript — no frameworks, no build tools. Works directly from `file://` or any static host.
-
-## Structure
-
-```
-index.html       # Full site (structure, styles, scripts)
-config.js        # All content lives here — edit this to update the site
-assets/icons/    # Tool icon PNGs
-images/          # Project images
-profile.jpg      # Profile photo
-resume.pdf       # Downloadable resume
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-## Customisation
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-All content (bio, experience, projects, skills, etc.) is in `config.js`. No need to touch `index.html`.
+You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-## Live
+## Learn More
 
-Deployed via GitHub Pages.
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

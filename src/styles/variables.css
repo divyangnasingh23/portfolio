@@ -1,0 +1,64 @@
+:root {
+  /* Fonts */
+  --font-display: var(--font-display, "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+  --font-sans: var(--font-sans, "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+  --font-primary: var(--font-sans);
+  --font-mono: ui-monospace, "SF Mono", Menlo, Monaco, monospace;
+
+  /* Shared Radii & Transitions */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 400ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Max Widths */
+  --max-width-content: 1120px;
+  --max-width-narrow: 780px;
+  --max-width-wide: 1280px;
+
+  /* PURE MINIMAL LIGHT PALETTE */
+  --bg-base: #ffffff;
+  --bg-surface: #fafafa;
+  --bg-surface-elevated: #f4f4f5;
+  --bg-surface-hover: #e4e4e7;
+  --bg-glass: rgba(255, 255, 255, 0.88);
+  --bg-glass-strong: rgba(255, 255, 255, 0.96);
+
+  --text-primary: #09090b;       /* Pure deep charcoal/black */
+  --text-secondary: #52525b;     /* Readable mid-slate */
+  --text-muted: #71717a;         /* Subtle captions & tags */
+  --text-inverted: #ffffff;
+
+  --border-subtle: #e4e4e7;      /* Clean hairline border */
+  --border-medium: #d4d4d8;
+  --border-focus: #09090b;
+
+  /* Minimal Functional Accents */
+  --accent-primary: #18181b;     /* High-craft monochromatic primary */
+  --accent-primary-hover: #09090b;
+  --accent-primary-light: #f4f4f5;
+
+  --accent-cyan: #0284c7;
+  --accent-cyan-light: #f0f9ff;
+
+  --accent-emerald: #16a34a;
+  --accent-emerald-light: #f0fdf4;
+
+  --accent-amber: #d97706;
+  --accent-amber-light: #fffbeb;
+
+  --accent-rose: #dc2626;
+  --accent-rose-light: #fef2f2;
+
+  /* Subtle Ambient Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.02);
+  --shadow-glow: none;
+}
