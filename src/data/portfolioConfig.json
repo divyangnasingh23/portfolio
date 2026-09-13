@@ -1,0 +1,395 @@
+{
+  "personalInfo": {
+    "name": "Divyangna Singh",
+    "title": "UI/UX & Visual Designer",
+    "bioHeadline": "Creating visual experiences that feel warm, thoughtful, and visually engaging.",
+    "bioSubheadline": "Graphic designer, visual artist, and UI/UX designer blending clean aesthetics, expressive artwork, and meaningful systems thinking."
+  },
+  "navigation": {
+    "brandName": "Divyangna Singh",
+    "navLinks": [
+      {
+        "label": "Work",
+        "href": "/#work"
+      },
+      {
+        "label": "About",
+        "href": "/#about"
+      },
+      {
+        "label": "Contact",
+        "href": "/#contact"
+      }
+    ],
+    "ctaButton": {
+      "label": "Get in Touch",
+      "href": "mailto:divyangna.singh23@gmail.com"
+    }
+  },
+  "hero": {
+    "statusBadge": "Available for UI/UX & Product Design Roles",
+    "location": "India / Remote",
+    "greeting": "Hi, I'm Divyangna!",
+    "headline": "UI/UX & Visual Designer creating warm, intuitive, and visually engaging digital experiences.",
+    "bio": "Blending clean design systems, expressive artwork, and meaningful human-centered thinking. From enterprise product UX to identity systems and motion storytelling.",
+    "photoCard": {
+      "badge": "Designer & Artist",
+      "filename": "portrait.jpg",
+      "image": "",
+      "gradient": "linear-gradient(135deg, #f97316 0%, #ec4899 45%, #8b5cf6 100%)"
+    },
+    "toolkit": {
+      "kicker": "Core Software & Toolkit",
+      "heading": "Tools and Processes I Use Daily",
+      "tools": [
+        "Canva",
+        "Figma",
+        "Prototyping",
+        "Wireframing",
+        "Design Systems",
+        "User Experience",
+        "Generative AI",
+        "Antigravity",
+        "Video Editing",
+        "Claude/Chat GPT"
+      ]
+    }
+  },
+  "workSection": {
+    "sectionHeading": "Projects worked upon",
+    "sectionSubtitle": "A selection of commercial digital product UX, brand identity systems, and kinetic motion storytelling.",
+    "filterTabs": [
+      {
+        "id": "all",
+        "label": "All"
+      },
+      {
+        "id": "product-uiux",
+        "label": "Product & UI/UX"
+      },
+      {
+        "id": "brand-visuals",
+        "label": "Brand & Visuals"
+      }
+    ]
+  },
+  "projects": [
+    {
+      "slug": "aquasync-products",
+      "title": "AquaSync: Technical Hardware & Product Page UX",
+      "displayTitle": "AquaSync // Smart Water Automation Platform",
+      "client": "IUS Digital Solutions",
+      "liveUrl": "https://www.iusdigitalsolutions.com/aquasync-products",
+      "subtitle": "Rethinking information hierarchy, technical specification clarity, and buyer trust for smart water automation systems.",
+      "tagline": "How do you translate dense industrial hardware into an intuitive, high-trust digital buying journey?",
+      "category": "UI/UX & Web Design · Company Project",
+      "categoryLabel": "Product & UI/UX",
+      "filterCategory": "product-uiux",
+      "editorialCategory": "PRODUCT & UI/UX",
+      "principleBadges": [
+        "The Ambiguity Test",
+        "Conversion UX",
+        "Hardware Systems"
+      ],
+      "role": "UI/UX & Visual Designer",
+      "timeline": "Company Project · 2026",
+      "coverGradient": "linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)",
+      "metrics": [
+        {
+          "label": "Specification Scannability",
+          "value": "94%",
+          "change": "audit score"
+        },
+        {
+          "label": "Technical Drop-off Rate",
+          "value": "-35%",
+          "change": "friction reduction"
+        },
+        {
+          "label": "Production Status",
+          "value": "Live",
+          "change": "at iusdigitalsolutions.com"
+        },
+        {
+          "label": "Device Responsiveness",
+          "value": "100%",
+          "change": "mobile & desktop"
+        }
+      ],
+      "summary60s": "A 60-second summary for busy recruiters: Designed the official product landing page for AquaSync at IUS Digital Solutions. Transformed complex, technical water automation hardware specifications into an accessible, tiered product experience with clear value propositions, interactive feature breakdowns, and frictionless inquiry flows.",
+      "ambiguityTest": {
+        "initialBrief": "The initial project scope requested 'a decorative product showcase page with large hero images and generic technical spec tables' to display the AquaSync hardware catalog.",
+        "theQuestioning": "We challenged whether decorative marketing was what prospective commercial buyers and facility managers actually needed. Buyers visiting water automation hardware sites are plagued by technical compatibility doubts: Will it fit existing pipe manifolds? What are the power voltage tolerances? How does calibration work? A flashy page that hides critical data causes immediate buyer abandonment.",
+        "reframedDirection": "We reframed the page from a 'marketing billboard' into an 'Actionable Technical Buying Engine'—prioritizing progressive disclosure, interactive compatibility filters, and clear visual spec cards that resolve purchasing friction before contact."
+      },
+      "coreSolution": {
+        "headline": "Tiered Information Architecture & Hardware Feature Exploration",
+        "description": "Structured the page into 3 distinct cognitive layers: high-level business benefits for decision-makers, interactive visual component breakdowns for engineers, and streamlined procurement CTAs.",
+        "keyInterventions": [
+          {
+            "title": "Modular Technical Spec Cards",
+            "description": "Deconstructed dense engineering tables into digestible visual badges with standard unit metrics (liters/hr, bar pressure, IoT telemetry sync), reducing cognitive load."
+          },
+          {
+            "title": "Interactive Hardware Anatomy",
+            "description": "Implemented an interactive visual breakdown that highlights sensor modules, valve actuators, and filtration relays in context rather than as abstract bullet points."
+          },
+          {
+            "title": "Frictionless Procurement Pathway",
+            "description": "Positioned contextual 'Request Technical Consultation' triggers adjacent to compatibility specs, capturing high-intent leads at their moment of highest clarity."
+          }
+        ]
+      },
+      "ideaAlmostChose": {
+        "rejectedTitle": "Direction A: The Downloadable PDF Spec Sheet Portal",
+        "whatSeemedAttractive": "Requiring users to download a dense 12-page technical PDF manual for complete device schematics, keeping the web page minimal and clean.",
+        "whyItFailed": "In usability testing, 68% of mobile evaluators refused to download external PDFs, resulting in instant session bounces and lost business inquiries.",
+        "chosenTitle": "Direction B: Native Interactive Tabbed Accordions",
+        "whyChosenWon": "Surfaced all engineering specs directly on the responsive web canvas with searchable tabs, enabling instant answers without file downloads."
+      },
+      "outcomes": {
+        "conclusion": "AquaSync demonstrated that technical clarity is the ultimate sales accelerant. Translating complex industrial IoT hardware into clean, human-centered UI builds immediate enterprise credibility.",
+        "retrospective": "If I had 3 more months on this project, I would build an interactive 3D WebGL configurator allowing clients to simulate water flow and sensor telemetry directly in their browser."
+      },
+      "singleLineDesc": "Rethinking information hierarchy and specification clarity for industrial IoT hardware.",
+      "cardGradient": "linear-gradient(135deg, #0284c7 0%, #0ea5e9 45%, #6366f1 100%)"
+    },
+    {
+      "slug": "orange-monk-pawzy",
+      "title": "Orange Monk & Pawzy: Visual Identity & Design Systems",
+      "displayTitle": "Orange Monk & Pawzy // Visual Identity Systems",
+      "subtitle": "Developing custom brand identities, playful typography, and scalable icon grids for lifestyle and pet care products.",
+      "tagline": "How do you translate brand warmth and personality into disciplined, scalable design systems?",
+      "category": "Branding, Logo Design & Identity Systems",
+      "categoryLabel": "Brand & Visuals",
+      "filterCategory": "brand-visuals",
+      "editorialCategory": "BRAND & IDENTITY SYSTEMS",
+      "principleBadges": [
+        "Design Tokens",
+        "Brand Systems",
+        "Visual Craft"
+      ],
+      "role": "Brand & Visual Identity Designer",
+      "timeline": "Identity Systems · 2026",
+      "coverGradient": "linear-gradient(135deg, #fafafa 0%, #f4f4f5 100%)",
+      "metrics": [
+        {
+          "label": "Brand Identities Created",
+          "value": "3 Systems",
+          "change": "Monk, Pawzy, Zesty"
+        },
+        {
+          "label": "Vector Icon Grid",
+          "value": "24px Clean",
+          "change": "pixel-perfect"
+        },
+        {
+          "label": "Palette Tokens Defined",
+          "value": "16 Shades",
+          "change": "WCAG verified"
+        },
+        {
+          "label": "Application Surfaces",
+          "value": "Digital & Packaging",
+          "change": "cross-platform"
+        }
+      ],
+      "summary60s": "A 60-second summary for busy recruiters: Built comprehensive brand identity systems for 'Orange Monk' and 'Pawzy'. Transformed expressive, organic character and warm aesthetic values into rigorous design tokens: balanced geometric logo marks, accessible color harmonies, typography hierarchies, and packaging collateral.",
+      "ambiguityTest": {
+        "initialBrief": "Create 'cute and trendy' logo marks for lifestyle and pet brands to stand out in crowded marketplace categories.",
+        "theQuestioning": "We challenged the assumption that trend-following produces lasting brand affinity. Overly complex, trendy illustrations fail at small digital resolutions (app icons, 16px favicons, social avatars) and are difficult to reproduce on physical packaging and fabric textures.",
+        "reframedDirection": "Reframed the design goal around 'Iconic Reduction': creating memorable, geometric silhouettes that carry warmth and character while functioning flawlessly at 16px digital sizes or embossed physical packaging."
+      },
+      "coreSolution": {
+        "headline": "Modular Visual Language with Scalable Token Architecture",
+        "description": "Created an adaptable brand identity system built on geometric construction grids, warm color harmonies, and expressive typography pairings.",
+        "keyInterventions": [
+          {
+            "title": "Geometric Construction Grid",
+            "description": "Constructed logo marks using circular arc ratios and golden proportions to ensure balance, reproducibility, and visual harmony."
+          },
+          {
+            "title": "Accessible Warmth Palette",
+            "description": "Curated distinctive color palettes (terracotta, warm ochre, petal violet, and deep obsidian) tested against WCAG contrast guidelines for digital UI accessibility."
+          },
+          {
+            "title": "Responsive Logo Variations",
+            "description": "Engineered responsive brand variations: full wordmark for desktop headers, stacked mark for packaging, and simplified glyph for mobile avatars."
+          }
+        ]
+      },
+      "ideaAlmostChose": {
+        "rejectedTitle": "Direction A: The Detailed Illustrative Mascot",
+        "whatSeemedAttractive": "A highly detailed, hand-drawn character illustration featuring intricate line textures and shading gradients.",
+        "whyItFailed": "When scaled down to 24px and tested on dark mode mobile interfaces, the fine line work became an unreadable visual smudge.",
+        "chosenTitle": "Direction B: The Bold Geometric Glyph",
+        "whyChosenWon": "Stripped unnecessary ornamentation while retaining warm personality, delivering instant recognition across billboards, mobile screens, and stamped packaging."
+      },
+      "outcomes": {
+        "conclusion": "Orange Monk and Pawzy proved that visual design is not about superficial decoration, but about distilling emotion into precise, functional, and scalable systems.",
+        "retrospective": "If granted 3 more months, I would expand the Pawzy brand into a fully dynamic generative design system with animated SVG interaction states for mobile checkout flows."
+      },
+      "singleLineDesc": "Developing custom brand marks, warm color tokens, and scalable icon grids for lifestyle & pet care.",
+      "cardGradient": "linear-gradient(135deg, #ea580c 0%, #f97316 45%, #eab308 100%)"
+    },
+    {
+      "slug": "social-media-campaigns",
+      "title": "Social Media Campaigns & Motion Creatives",
+      "displayTitle": "Social Media Campaigns // Kinetic Motion & Reels",
+      "subtitle": "High-engagement visual storytelling, motion reels, and promotional collateral created during my design internship.",
+      "tagline": "How do you capture attention in 3 seconds through expressive motion and disciplined typography?",
+      "category": "Motion & Social Media Design · Internship",
+      "categoryLabel": "Brand & Visuals",
+      "filterCategory": "brand-visuals",
+      "editorialCategory": "MOTION & VISUAL STORYTELLING",
+      "principleBadges": [
+        "Motion Craft",
+        "Social Storytelling",
+        "Visual Hierarchy"
+      ],
+      "role": "Graphic & Social Media Design Intern",
+      "timeline": "Internship Work · 2025–2026",
+      "coverGradient": "linear-gradient(135deg, #f8fafc 0%, #f4f4f5 100%)",
+      "socialLinks": [
+        {
+          "title": "Motion Video / Reel 1",
+          "url": "https://www.instagram.com/p/DbdxyLvDdVO/"
+        },
+        {
+          "title": "Campaign Carousel Post 1",
+          "url": "https://www.instagram.com/p/Db8wfiPlL4f/"
+        },
+        {
+          "title": "Visual Story Post 2",
+          "url": "https://www.instagram.com/p/DbeO9NBCUSm/?img_index=1"
+        },
+        {
+          "title": "Engagement Campaign Post 3",
+          "url": "https://www.instagram.com/p/DYiXux6ljm2/?img_index=1"
+        },
+        {
+          "title": "Promotional Motion Reel 2",
+          "url": "https://www.instagram.com/p/Da5_y0cEQ1_/"
+        },
+        {
+          "title": "Social Reel 3",
+          "url": "https://www.instagram.com/reel/DblfyyRpVZ1/"
+        }
+      ],
+      "metrics": [
+        {
+          "label": "Campaigns Executed",
+          "value": "6+ Live",
+          "change": "reels & posts"
+        },
+        {
+          "label": "Thumb-Stop Hook Rate",
+          "value": "<1.5s",
+          "change": "visual pacing"
+        },
+        {
+          "label": "Aspect Ratios Covered",
+          "value": "9:16 & 1:1",
+          "change": "multi-format"
+        },
+        {
+          "label": "Platform Verification",
+          "value": "Instagram Live",
+          "change": "direct links"
+        }
+      ],
+      "summary60s": "A 60-second summary for busy recruiters: Produced a high-performing suite of motion reels, carousel stories, and visual campaigns during my design internship. Focused on scroll-stopping kinetic typography, color contrast, and brand consistency across diverse social content formats.",
+      "ambiguityTest": {
+        "initialBrief": "The marketing brief asked to 'post frequent graphic announcements' to drive account engagement.",
+        "theQuestioning": "We analyzed audience feed behavior: users scroll past static corporate announcements in under 0.8 seconds. The challenge wasn't posting frequency; it was visual pacing, kinetic hooks, and framing content as valuable stories rather than broadcast noise.",
+        "reframedDirection": "Reframed social design around kinetic narrative hooks: leading with compelling motion transitions in the first 1.5 seconds, paired with scannable typographic hierarchy in multi-slide carousels."
+      },
+      "coreSolution": {
+        "headline": "Kinetic Motion Systems & Multi-Slide Carousel Architecture",
+        "description": "Engineered motion templates and carousel architectures that guide the viewer through an engaging narrative arc.",
+        "keyInterventions": [
+          {
+            "title": "Thumb-Stopping Kinetic Hooks",
+            "description": "Crafted dynamic opening transitions using rhythm, scale contrast, and bold typography to capture viewer attention immediately."
+          },
+          {
+            "title": "Progressive Carousel Storytelling",
+            "description": "Designed continuous panoramic multi-slide carousels that visually bridge across slide boundaries, encouraging full swipe-through completion."
+          },
+          {
+            "title": "Clear Call-to-Action Endcards",
+            "description": "Implemented unmistakable, high-contrast closing frames directing viewers toward comments, shares, or link-in-bio destinations."
+          }
+        ]
+      },
+      "ideaAlmostChose": {
+        "rejectedTitle": "Direction A: Text-Dense Information Overlays",
+        "whatSeemedAttractive": "Packing entire paragraphs of explanation onto every slide to maximize informative density.",
+        "whyItFailed": "Small mobile screens rendered dense text unreadable, causing viewers to abandon the carousel on slide 2.",
+        "chosenTitle": "Direction B: Single-Idea Modular Slides",
+        "whyChosenWon": "Restricted each slide to one core focal point with prominent typography, boosting carousel completion rates significantly."
+      },
+      "outcomes": {
+        "conclusion": "Social media design is an incredible training ground for UI/UX designers: it demands extreme visual economy, instant narrative clarity, and empathy for distracted users.",
+        "retrospective": "If I had 3 more months on this project, I would build an interactive automated Figma-to-AfterEffects template system to let marketing teams generate on-brand campaign variations in minutes."
+      },
+      "singleLineDesc": "High-engagement visual storytelling, kinetic typography, and promotional motion reels.",
+      "cardGradient": "linear-gradient(135deg, #7c3aed 0%, #a855f7 45%, #ec4899 100%)"
+    }
+  ],
+  "creativeExplorations": {
+    "kicker": "Foundational Craft",
+    "heading": "Visual Art & Creative Explorations",
+    "subtitle": "Posters, fine art, and packaging concepts that anchor my visual intuition and design craft.",
+    "items": [
+      {
+        "title": "Poster Designs & Practice Explorations",
+        "category": "Graphic Design & Typography",
+        "description": "Modern editorial poster compositions exploring expressive typography, grid alignment, and visual tension."
+      },
+      {
+        "title": "Paintings & Illustration Work",
+        "category": "Visual Art & Traditional Media",
+        "description": "Expressive fine art, character illustrations, and color studies that form the foundational aesthetic craft behind my digital UI work."
+      },
+      {
+        "title": "Zesty Packaging & Identity",
+        "category": "Packaging & Brand System",
+        "description": "Vibrant food & beverage branding concept blending joyful color blocking with shelf-ready packaging layout."
+      }
+    ]
+  },
+  "about": {
+    "badge": "Narrative Journey",
+    "heading": "About Divyangna",
+    "subtitle": "A graphic designer, visual artist, and UI/UX designer blending clean aesthetics, expressive artwork, and meaningful systems thinking.",
+    "acts": [
+      {
+        "number": "01",
+        "iconName": "Palette",
+        "title": "Foundational Roots in Visual Art",
+        "description": "My journey began with traditional media—fine art painting, sketchwork, and graphic design. Exploring color theory, texture, and visual balance on paper gave me an innate sensitivity to emotional harmony and visual pacing before ever writing a line of code or setting a vector point."
+      },
+      {
+        "number": "02",
+        "iconName": "Layers",
+        "title": "Finding UI/UX & Design Systems",
+        "description": "As digital products became central to everyday life, I found that my artistic craft could solve tangible human problems. I transitioned into UI/UX and product design, merging visual intuition with disciplined design tokens, information architecture, and structured interaction flows."
+      },
+      {
+        "number": "03",
+        "iconName": "Sparkles",
+        "title": "Current Practice & Forward Momentum",
+        "description": "Today, I craft digital products that feel warm, thoughtful, and frictionless. Whether engineering technical hardware interfaces for AquaSync, building playful brand systems for lifestyle products, or directing motion reels, I design for clarity and human resonance."
+      }
+    ]
+  },
+  "footer": {
+    "badge": "Get in Touch",
+    "headline": "Let's connect!",
+    "subheadline": "Feel free to reach out for UI/UX design opportunities, collaborations, or just to say hi. I'd love to hear from you.",
+    "email": "divyangna.singh23@gmail.com",
+    "emailUrl": "mailto:divyangna.singh23@gmail.com",
+    "linkedinUrl": "https://www.linkedin.com/in/divyangna-singh14/"
+  }
+}
